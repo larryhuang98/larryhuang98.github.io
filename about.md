@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Abouti Me
+title: About Me
 permalink: /about/
 ---
 Welcome to my website! I'm a Ph.D. student at the University of California, Irvine (UCI), where my academic journey is deeply rooted in the captivating field of molecular dynamics simulations. My research interests span a broad spectrum from the development of polarizable force fields to the exploration of free energy calculation methods, all with the aim of advancing our understanding of the intricate behaviors of biomolecular systems.  
