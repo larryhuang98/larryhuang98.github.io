@@ -123,11 +123,14 @@ blockquote {
 pre,
 code {
   font-family: $code-font-family;
-  border-radius: 0.3em;
+  font-size: 0.9375em;
+  border: 1px solid $border-color-01;
+  border-radius: 3px;
+  background-color: $code-background-color;
 }
 
 code {
-  padding: 0px 5px;
+  padding: 1px 5px;
 }
 
 pre {
@@ -145,7 +148,7 @@ pre {
   }
 }
 
-.highlight {
+div.highlight {
   border-radius: 0.3em;
   @extend %vertical-rhythm;
 }
