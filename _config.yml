@@ -4,6 +4,9 @@ author: Zhen Huang
 avatar: /logo.png
 email: zhenh7@gmail.com
 
+markdown: kramdown
+mathjax: true
+
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
