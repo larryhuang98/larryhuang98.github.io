@@ -12,6 +12,7 @@ $$
 & &h_j(x)=0\text{ , i=1,2,3,...,m}
 \end{align}
 $$
+
 The optimization problem can be interpreted as minimizing an **objective function** $$f_0(x)$$, with some **inequality constraints** $$f_i(x)$$ and **equality constraints** $$h_j(x)$$. All sets of x that satisfy all the constraints are named **feasible set**. Our goal is to find the **optimal solution** and its corresponding **optimal value** over the feasible set.
 
 ## General Approach
@@ -36,6 +37,7 @@ $$
 & &h_j(x)=(x_1+x_2)^2=0
 \end{align}
 $$
+
 While we can rewrite the equivalent problem as a convex function
 $$
 \begin{align}

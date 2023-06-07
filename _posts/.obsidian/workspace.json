@@ -35,9 +35,17 @@
             "id": "6e494d0871477e6b",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "c22857bede6d6124",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Class-Notes-Optimization-1.md",
+                "file": "2023-06-06-Optimization-1.md",
                 "mode": "source",
                 "source": false
               }
@@ -56,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -130,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Class-Notes-Optimization-1.md",
+                "file": "2023-06-06-Optimization-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Class-Notes-Optimization-1.md",
+                "file": "2023-06-06-Optimization-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Class-Notes-Optimization-1.md"
+                "file": "2023-06-06-Optimization-1.md"
               }
             }
           }
@@ -193,7 +201,7 @@
       "zk-prefixer:创建时间戳笔记": false
     }
   },
-  "active": "6e494d0871477e6b",
+  "active": "c22857bede6d6124",
   "lastOpenFiles": [
     "2023-06-02-MPI-6.md",
     "Class-Notes-Optimization-1.md",
