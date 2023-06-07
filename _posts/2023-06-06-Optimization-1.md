@@ -54,8 +54,12 @@ Convex problem has one very important property: Any locally optimal point of a c
 A function f is convex when the following two criterions are satisfied:
 1. domain of f is a convex set
 2. $$f(\theta x+(1-\theta)y)\leq\theta f(x)+(1-\theta)f(y)$$, for any x and y in domain of f and $$0\leq\theta\leq1$$
+
+
 Two quick ways to find whether the function is convex:
 1. First-order condition: suppose f is differentiable with convex domain, f is convex if and only if $$f(y)\geq f(x)+\nabla f(x)^T(y-x)$$ holds for all x and y in the domain
 2. Second-order condition: For twice differentiable f with convex domain, f is convex is and only if $$\nabla^2f(x)\geq 0$$
+
+
 A set is convex when the line segment formed by two points in the set is also in the set, which can be represented as $$x\in C;x=\theta x_1+(1-\theta)x_2;x_1\in C; x_2\in C$$ with $$0\leq\theta\leq1$$
  
