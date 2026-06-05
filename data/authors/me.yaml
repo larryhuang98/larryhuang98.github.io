@@ -1,0 +1,54 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Zhen Huang
+  given: Zhen
+  family: Huang
+  alternate: ''  # e.g. 黄震
+  pronunciation: ''
+  pronouns: ''
+postnominals: []
+status:
+  icon: "🧪"
+role: Ph.D. Candidate in Computational Chemistry
+
+bio: |
+  Zhen Huang is a Ph.D. candidate in computational chemistry at the University of
+  California, Irvine, advised by Prof. Ray Luo. His research develops Gaussian-density
+  force fields — the polarizable Gaussian multipole (PGM) model, the DEGauss softcore
+  potential, and a self-consistent Gaussian van der Waals (GVDW) term — and their
+  GPU implementation in the AMBER molecular dynamics package.
+
+affiliations:
+  - name: University of California, Irvine
+    url: https://www.uci.edu/
+
+links:
+  - icon: at-symbol
+    url: mailto:zhenh7@uci.edu
+    label: E-mail
+  - icon: brands/github
+    url: https://github.com/larryhuang98
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/zhen-huang-aab9bb229/
+  # TODO: add Google Scholar / ORCID once you have the profile URLs
+  # - icon: academicons/google-scholar
+  #   url: https://scholar.google.com/citations?user=XXXX
+  # - icon: academicons/orcid
+  #   url: https://orcid.org/XXXX-XXXX-XXXX-XXXX
+
+interests:
+  - Force-field development
+  - Molecular dynamics
+  - Free-energy calculations
+  - Machine-learning interatomic potentials
+  - GPU high-performance computing
+
+education:
+  - degree: Ph.D. in Chemistry
+    institution: University of California, Irvine
+    start: 2021-09-01
+    end: 2026-09-01
+    summary: |
+      Thesis on Gaussian-density force fields for molecular dynamics. Advisor: Prof. Ray Luo.

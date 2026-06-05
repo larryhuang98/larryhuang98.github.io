@@ -1,12 +1,69 @@
-# Ignore the contents of the _site directory
-_site/
+# ============================================================================
+# Hugo Site .gitignore
+# ============================================================================
 
-# Ignore the directory for local files during development
-local/
+# ============================================================================
+# Hugo Build Artifacts
+# ============================================================================
 
-# Ignore the Gemfile that is generated
-Gemfile.lock
+# Generated site output
+public/
 
-# Ingore files created by npm
-node_modules
-package-lock.json
+# Hugo resources (processed assets)
+resources/
+
+# Hugo build lock
+.hugo_build.lock
+
+# Hugo stats
+hugo_stats.json
+
+# Auto-generated JS config
+**/assets/jsconfig.json
+
+# ============================================================================
+# Node.js & Package Managers
+# ============================================================================
+
+# Dependencies
+node_modules/
+
+# ============================================================================
+# Environment & Configuration
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# ============================================================================
+# Generated Content
+# ============================================================================
+
+# Pagefind search index
+pagefind/
+static/pagefind/
+
+# ============================================================================
+# Operating System
+# ============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ============================================================================
+# Logs & Temporary Files
+# ============================================================================
+
+*.log
+npm-debug.log*
