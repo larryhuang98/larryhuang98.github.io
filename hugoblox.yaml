@@ -1,5 +1,7 @@
 build:
-  hugo_version: '0.162.0'
+  # 0.162.0 shipped a `dict`-returns-nil regression that breaks HugoBlox
+  # templates; 0.162.1 reverts it. Pin to the fixed patch release.
+  hugo_version: '0.162.1'
 deploy:
   # Deployment target: github-pages, netlify, vercel, cloudflare, or none
   host: 'github-pages'
