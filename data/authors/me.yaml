@@ -15,10 +15,13 @@ role: Ph.D. Candidate in Computational Chemistry
 
 bio: |
   Zhen Huang is a Ph.D. candidate in computational chemistry at the University of
-  California, Irvine, advised by Prof. Ray Luo. His research develops Gaussian-density
-  force fields — the polarizable Gaussian multipole (PGM) model, the DEGauss softcore
-  potential, and a self-consistent Gaussian van der Waals (GVDW) term — and their
-  GPU implementation in the AMBER molecular dynamics package.
+  California, Irvine, advised by Prof. Ray Luo, and a core developer of the AMBER
+  molecular dynamics package. His work centers on force-field development and
+  high-performance scientific software: the polarizable Gaussian multipole (pGM)
+  model, the DEGauss softcore potential, and a self-consistent Gaussian van der
+  Waals (GVDW) term, together with their MPI and CUDA implementation in AMBER. He
+  also works on free-energy calculations and machine-learning potentials for drug
+  discovery and biomolecular systems.
 
 affiliations:
   - name: University of California, Irvine
@@ -52,3 +55,9 @@ education:
     end: 2026-09-01
     summary: |
       Thesis on Gaussian-density force fields for molecular dynamics. Advisor: Prof. Ray Luo.
+  - degree: B.S. in Chemistry
+    institution: Southern University of Science and Technology
+    start: 2017-09-01
+    end: 2021-06-30
+    summary: |
+      Shenzhen, China. Advisor: Prof. Yanggang Wang.
