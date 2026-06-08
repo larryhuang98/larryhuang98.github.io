@@ -1,0 +1,29 @@
+{{/* Research-as-Pokémon dex — Game Boy world */}}
+<div class="gb-world">
+  <div class="gb-screen">
+    <div class="gb-bar"><span class="gb-led"></span> RESEARCH&nbsp;POKéDEX <span class="gb-batt">▮▮▮</span></div>
+    <h2 class="gb-title">Gotta&nbsp;simulate&nbsp;’em&nbsp;all</h2>
+    <p class="gb-sub">黄镇 · the methods of the Luo Lab, as creatures</p>
+    <div class="poke-grid">
+      {{ range $i, $c := site.Data.pokecards.cards }}
+      <article class="poke-card" style="--type:{{ $c.color }}">
+        <header class="poke-card__top">
+          <span class="poke-card__no">No.{{ printf "%03d" (add $i 1) }}</span>
+          <span class="poke-card__name">{{ $c.name }}</span>
+          <span class="poke-card__hp">♥{{ $c.hp }}</span>
+        </header>
+        <div class="poke-card__art"><span class="poke-card__sprite">{{ $c.sprite }}</span></div>
+        <div class="poke-card__type">{{ $c.type }}</div>
+        <div class="poke-card__stats">
+          {{ range $c.stats }}
+          <div class="stat"><span class="stat__k">{{ .k }}</span><span class="stat__bar"><span class="stat__fill" style="width:{{ .v }}%"></span></span></div>
+          {{ end }}
+        </div>
+        <div class="poke-card__move"><b>{{ $c.move }}</b> — {{ $c.move_desc }}</div>
+        <p class="poke-card__full">{{ $c.full }}</p>
+        <p class="poke-card__flavor">“{{ $c.flavor }}”</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</div>

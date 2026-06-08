@@ -1,0 +1,64 @@
+{{/* Games world — Persona 3 Reload style */}}
+{{ $games := site.Data.games.games }}
+<div class="p3-world">
+  <div class="p3-glow"></div>
+  <div class="p3-inner">
+    <div class="p3-tag">▌ GAMES</div>
+    <h2 class="p3-title">SCORE<span>BOARD</span></h2>
+    <p class="p3-sub">黄镇 · what I play, ranked without mercy · /10</p>
+
+    {{ range where $games "best" true }}
+    <section class="p3-best">
+      <div class="p3-best__badge">★ PERSONAL&nbsp;BEST</div>
+      <div class="p3-best__cover">{{ .cover }}</div>
+      <div class="p3-best__body">
+        <h3 class="p3-best__title">{{ .title }}</h3>
+        <div class="p3-best__meta">{{ .platform }} · {{ .year }} · {{ .hours }}h</div>
+        <p class="p3-best__blurb">{{ .blurb }}</p>
+      </div>
+      <div class="p3-best__score"><b>{{ .score }}</b><span>/10</span></div>
+    </section>
+    {{ end }}
+
+    {{ with where $games "status" "playing" }}
+    <section class="p3-sec">
+      <h4 class="p3-h">NOW PLAYING</h4>
+      <div class="p3-now">{{ range . }}<span class="p3-now__chip">{{ .cover }} {{ .title }} <i>{{ .hours }}h</i></span>{{ end }}</div>
+    </section>
+    {{ end }}
+
+    <section class="p3-sec">
+      <h4 class="p3-h">TIER LIST</h4>
+      <div class="p3-tier">
+        {{ range $tier := slice "S" "A" "B" "C" "F" }}
+          {{ with where $games "tier" $tier }}
+          <div class="p3-tier__row tier-{{ $tier }}">
+            <span class="p3-tier__label">{{ $tier }}</span>
+            <div class="p3-tier__games">{{ range . }}<span class="p3-tier__chip">{{ .cover }} {{ .title }}</span>{{ end }}</div>
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="p3-sec">
+      <h4 class="p3-h">REVIEWS</h4>
+      <div class="p3-grid">
+        {{ range $games }}
+        <article class="p3-card tier-{{ .tier }}">
+          <div class="p3-card__in">
+            <div class="p3-card__cover">{{ .cover }}</div>
+            <div class="p3-card__main">
+              <div class="p3-card__top"><h5 class="p3-card__title">{{ .title }}</h5><span class="p3-badge tier-{{ .tier }}">{{ .tier }}</span></div>
+              <div class="p3-card__meta">{{ .platform }} · {{ .year }} · {{ .hours }}h · <span class="p3-status p3-status--{{ .status }}">{{ .status }}</span></div>
+              <p class="p3-card__blurb">{{ .blurb }}</p>
+              <div class="p3-card__pc"><ul class="p3-pros">{{ range .pros }}<li>{{ . }}</li>{{ end }}</ul><ul class="p3-cons">{{ range .cons }}<li>{{ . }}</li>{{ end }}</ul></div>
+            </div>
+            <div class="p3-card__score"><b>{{ .score }}</b></div>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+  </div>
+</div>

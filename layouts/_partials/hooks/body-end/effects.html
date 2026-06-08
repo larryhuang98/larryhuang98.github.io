@@ -1,0 +1,8 @@
+{{/* Ink-wash hero effects — Bio page only */}}
+{{ if eq .RelPermalink "/bio/" }}
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.0/dist/hanzi-writer.min.js" defer></script>
+  {{ with resources.Get "js/ink-effects.js" }}
+    {{ $js := . | js.Build (dict "minify" true) }}
+    <script src="{{ $js.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}

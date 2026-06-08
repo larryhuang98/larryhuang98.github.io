@@ -5,7 +5,7 @@
 
 main:
   - name: Bio
-    url: /
+    url: bio/
     weight: 10
   - name: Papers
     url: /#papers
@@ -16,6 +16,6 @@ main:
   - name: Blog
     url: blog/
     weight: 20
-  - name: Literature
-    url: literature/
-    weight: 30
+  - name: Pokédex
+    url: pokedex/
+    weight: 40

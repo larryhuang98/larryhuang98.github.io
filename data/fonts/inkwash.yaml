@@ -1,0 +1,19 @@
+# HugoBlox Font Pack — Clean modern (sans headings + serif body)
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Clean Modern"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    style: "sans-serif"
+    description: "Space Grotesk headings with Source Serif 4 body"
+
+  families:
+    heading: "Space Grotesk"
+    body: "Source Serif 4"
+    code: "JetBrains Mono"
+
+  weights:
+    heading: [500, 600, 700]
+    body: [400, 600]

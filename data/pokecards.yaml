@@ -1,0 +1,97 @@
+# Research-as-Pokémon — the lab's methods as collectible creatures.
+cards:
+  - name: PGM
+    full: Polarizable Gaussian Multipole
+    type: Polarizable
+    color: "#e0a800"
+    hp: 95
+    sprite: "⚛"
+    move: Gaussian Multipole
+    move_desc: "Spreads charge into smooth Gaussian clouds and polarizes to any field."
+    flavor: "A polarizable spirit that never met a point charge it couldn't smooth."
+    stats:
+      - { k: ACC, v: 95 }
+      - { k: SPD, v: 58 }
+      - { k: TRF, v: 82 }
+      - { k: SCL, v: 70 }
+      - { k: CST, v: 52 }
+
+  - name: DEGauss
+    full: Double-Exponential Gaussian Softcore
+    type: Softcore
+    color: "#c03028"
+    hp: 88
+    sprite: "🥊"
+    move: Soft-Core Crush
+    move_desc: "Tempers harsh clashes with a soft exponential touch — never singular."
+    flavor: "Where other potentials blow up, DEGauss lands softly."
+    stats:
+      - { k: ACC, v: 86 }
+      - { k: SPD, v: 74 }
+      - { k: TRF, v: 70 }
+      - { k: SCL, v: 66 }
+      - { k: CST, v: 60 }
+
+  - name: GVDW
+    full: Gaussian van der Waals
+    type: Dispersion
+    color: "#b08a3e"
+    hp: 84
+    sprite: "🌫"
+    move: Dispersion Field
+    move_desc: "Binds atoms with a self-consistent web of gentle Gaussian pulls."
+    flavor: "Quiet but everywhere — the glue between every pair."
+    stats:
+      - { k: ACC, v: 88 }
+      - { k: SPD, v: 55 }
+      - { k: TRF, v: 78 }
+      - { k: SCL, v: 64 }
+      - { k: CST, v: 50 }
+
+  - name: AmberTorchPB
+    full: AmberTorch Poisson–Boltzmann
+    type: Tensor
+    color: "#8a8fb0"
+    hp: 90
+    sprite: "⚡"
+    move: Tensor Reaction Field
+    move_desc: "Channels Poisson–Boltzmann electrostatics through GPU tensors."
+    flavor: "Continuum electrostatics at the speed of CUDA."
+    stats:
+      - { k: ACC, v: 84 }
+      - { k: SPD, v: 96 }
+      - { k: TRF, v: 72 }
+      - { k: SCL, v: 90 }
+      - { k: CST, v: 80 }
+
+  - name: MMPBSA
+    full: MM Poisson–Boltzmann Surface Area
+    type: Binding
+    color: "#5a7fd0"
+    hp: 80
+    sprite: "💧"
+    move: Binding Affinity
+    move_desc: "Reads how tightly two partners embrace, from solvent to surface."
+    flavor: "The matchmaker of molecules."
+    stats:
+      - { k: ACC, v: 72 }
+      - { k: SPD, v: 70 }
+      - { k: TRF, v: 64 }
+      - { k: SCL, v: 75 }
+      - { k: CST, v: 68 }
+
+  - name: ML-SES
+    full: Machine-Learned Solvent-Excluded Surface
+    type: Neural
+    color: "#d05a86"
+    hp: 86
+    sprite: "🧠"
+    move: Surface Net
+    move_desc: "Learns the molecular surface and conjures it in an instant."
+    flavor: "Why compute the surface when you can dream it?"
+    stats:
+      - { k: ACC, v: 83 }
+      - { k: SPD, v: 92 }
+      - { k: TRF, v: 68 }
+      - { k: SCL, v: 88 }
+      - { k: CST, v: 78 }

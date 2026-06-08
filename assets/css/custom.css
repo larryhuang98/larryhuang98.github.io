@@ -1,0 +1,284 @@
+/* ============================================================
+   Ink-wash (水墨) personal site — custom styles
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Long+Cang&display=swap');
+
+:root{
+  --paper:#F4EFE3;
+  --ink:#1A1A1A;
+  --ink-soft:#4a4034;
+  --seal:#B23A2E;
+}
+
+/* ---------- Full-screen 山水 hero ---------- */
+.ink-hero{
+  position:relative;
+  width:100vw; left:50%; right:50%;
+  margin-left:-50vw; margin-right:-50vw;
+  height:90vh; min-height:540px;
+  overflow:hidden;
+  background:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* pale ink "sun/moon" (real element so it can parallax) */
+.ink-hero__sun{
+  position:absolute; top:13%; right:17%; z-index:1;
+  width:170px; height:170px; border-radius:50%;
+  background:radial-gradient(circle, rgba(178,58,46,.12), rgba(178,58,46,.04) 60%, transparent 70%);
+  will-change:transform;
+}
+
+/* layered ink mountains pinned to the base */
+.ink-hero__mountains{
+  position:absolute; left:0; bottom:0; width:100%; height:62%;
+  display:block; z-index:1;
+}
+.m-far{ fill:rgba(74,64,52,.18); will-change:transform; }
+.m-mid{ fill:rgba(58,50,40,.34); will-change:transform; }
+.m-near{ fill:rgba(26,22,18,.62); will-change:transform; }
+
+/* drifting mist band */
+.ink-hero__mist{
+  position:absolute; left:-10%; right:-10%; bottom:24%; height:34%; z-index:2;
+  background:linear-gradient(to top, transparent, rgba(244,239,227,.85) 45%, transparent);
+  filter:blur(6px);
+  animation:mistDrift 26s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+.ink-hero__fade{
+  position:absolute; left:0; right:0; bottom:0; height:22%; z-index:2;
+  background:linear-gradient(to bottom, transparent, var(--paper));
+}
+
+/* canvas for ink particles / petals / koi / mouse ink-trail */
+.ink-hero__fx{
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+}
+
+/* center stack */
+.ink-hero__center{ position:relative; z-index:3; text-align:center; padding:0 1rem; }
+
+/* name: Hanzi-writer targets + Ma Shan Zheng fallback */
+.ink-hero__name{ display:flex; gap:.15em; align-items:center; justify-content:center; min-height:1em; }
+.ink-hero__name .hz-char{ width:clamp(110px,17vw,210px); height:clamp(110px,17vw,210px); }
+.ink-hero__name-fallback{
+  font-family:"Ma Shan Zheng", serif; color:var(--ink);
+  font-size:clamp(5rem,17vw,13rem); line-height:.95; letter-spacing:.05em;
+  text-shadow:0 2px 18px rgba(26,22,18,.12);
+  animation:inkReveal 1.7s cubic-bezier(.2,.7,.2,1) both;
+}
+/* when JS stroke-draw is active, hide the fallback text */
+.ink-hero.hz-active .ink-hero__name-fallback{ display:none; }
+.ink-hero:not(.hz-active) .ink-hero__name .hz-char{ display:none; }
+
+.ink-hero__sub{
+  margin-top:.4rem; font-family:"Shippori Mincho", serif; font-weight:600;
+  font-size:clamp(1.3rem,3.2vw,2.1rem); color:var(--ink); letter-spacing:.08em;
+  opacity:0; transform:translateY(16px);
+}
+.ink-hero__role{
+  margin-top:.5rem; font-family:"Noto Serif", serif; color:var(--ink-soft);
+  font-size:clamp(.95rem,1.6vw,1.15rem); letter-spacing:.02em;
+  opacity:0; transform:translateY(16px);
+}
+.ink-hero.is-ready .ink-hero__sub{ animation:fadeUp .9s ease .1s both; }
+.ink-hero.is-ready .ink-hero__role{ animation:fadeUp .9s ease .35s both; }
+
+/* red seal (印章) that stamps in once the name is written */
+.ink-hero__seal{
+  position:absolute; z-index:4; bottom:30%; right:15%;
+  width:clamp(48px,6vw,76px); height:clamp(48px,6vw,76px);
+  display:flex; align-items:center; justify-content:center;
+  background:var(--seal); color:var(--paper); border-radius:10px;
+  font-family:"Ma Shan Zheng", serif; line-height:1;
+  font-size:clamp(20px,2.4vw,30px);
+  box-shadow:0 2px 10px rgba(178,58,46,.35);
+  writing-mode:vertical-rl; padding:.35em .15em;
+  opacity:0;
+}
+.ink-hero.is-ready .ink-hero__seal{ animation:sealStamp .6s cubic-bezier(.2,.9,.3,1.2) .6s both; }
+
+/* scroll cue */
+.ink-hero__scroll{
+  position:absolute; z-index:3; bottom:4.5%; left:50%;
+  color:var(--ink-soft); font-size:1.6rem;
+  opacity:0;
+}
+.ink-hero.is-ready .ink-hero__scroll{ animation:floatY 2.2s ease-in-out infinite, fadeUp 1s ease .8s both; }
+
+@keyframes inkReveal{ 0%{opacity:0; filter:blur(16px); transform:translateY(10px) scale(1.04);} 100%{opacity:1; filter:blur(0); transform:none;} }
+@keyframes fadeUp{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;} }
+@keyframes sealStamp{ 0%{opacity:0; transform:scale(1.9) rotate(-9deg);} 55%{opacity:1; transform:scale(.9) rotate(-4deg);} 100%{opacity:1; transform:scale(1) rotate(-5deg);} }
+@keyframes mistDrift{ from{transform:translateX(-4%);} to{transform:translateX(4%);} }
+@keyframes floatY{ 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
+
+@media (prefers-reduced-motion: reduce){
+  .ink-hero__mist{ animation:none; }
+  .ink-hero__sub,.ink-hero__role,.ink-hero__seal,.ink-hero__scroll{ opacity:1; transform:none; animation:none; }
+}
+
+/* ============================================================
+   Pokémon page — Game Boy world (scoped under .gb-world)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+.gb-world{
+  width:100vw; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
+  position:relative; padding:2.5rem 1rem 4rem;
+  background:
+    repeating-linear-gradient(0deg, rgba(15,56,15,.04) 0 2px, transparent 2px 4px),
+    #8bac0f; /* DMG green */
+  font-family:"VT323", monospace;
+}
+.gb-screen{ max-width:1080px; margin:0 auto; }
+.gb-bar{
+  font-family:"Press Start 2P", monospace; font-size:.7rem; color:#0f380f;
+  background:#9bbc0f; border:3px solid #0f380f; border-radius:6px;
+  padding:.7rem 1rem; display:flex; align-items:center; gap:.6rem; justify-content:space-between;
+  box-shadow:4px 4px 0 #0f380f;
+}
+.gb-led{ width:12px; height:12px; border-radius:50%; background:#c03028; box-shadow:0 0 6px #c03028; display:inline-block; }
+.gb-batt{ letter-spacing:-2px; }
+.gb-title{
+  font-family:"Press Start 2P", monospace; color:#0f380f;
+  font-size:clamp(1rem,3.2vw,1.7rem); text-align:center; margin:1.6rem 0 .3rem; line-height:1.5;
+  text-shadow:2px 2px 0 #9bbc0f;
+}
+.gb-sub{ font-size:1.25rem; text-align:center; color:#1e3a14; margin:0 0 1.8rem; }
+
+.poke-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(248px,1fr)); gap:1.4rem; }
+
+.poke-card{
+  background:#f6f4e4; border:4px solid #0f380f; border-radius:10px;
+  box-shadow:6px 6px 0 #0f380f; padding:.7rem .8rem 1rem;
+  transition:transform .12s steps(2), box-shadow .12s;
+  display:flex; flex-direction:column;
+}
+.poke-card:hover{ transform:translate(-3px,-3px); box-shadow:9px 9px 0 #0f380f; }
+.poke-card__top{
+  display:flex; align-items:center; justify-content:space-between; gap:.4rem;
+  background:var(--type); border-radius:6px; padding:.4rem .5rem; border:3px solid #0f380f;
+}
+.poke-card__no{ font-family:"Press Start 2P",monospace; font-size:.5rem; color:#0f380f; opacity:.8; }
+.poke-card__name{ font-family:"Press Start 2P",monospace; font-size:.78rem; color:#1a1a1a; }
+.poke-card__hp{ font-family:"Press Start 2P",monospace; font-size:.6rem; color:#7a1410; }
+.poke-card__art{
+  height:96px; margin:.6rem 0; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--type) 35%, #fff), #eceadb);
+  border:3px solid #0f380f; border-radius:6px;
+}
+.poke-card__sprite{ font-size:3.4rem; filter:drop-shadow(2px 2px 0 rgba(15,56,15,.3)); }
+.poke-card__type{
+  align-self:flex-start; font-family:"Press Start 2P",monospace; font-size:.5rem; color:#0f380f;
+  background:var(--type); border:2px solid #0f380f; border-radius:20px; padding:.35em .7em; margin:.5rem 0;
+}
+.poke-card__stats{ display:grid; gap:.28rem; margin:.2rem 0 .6rem; }
+.stat{ display:flex; align-items:center; gap:.5rem; }
+.stat__k{ font-family:"Press Start 2P",monospace; font-size:.45rem; color:#0f380f; width:34px; }
+.stat__bar{ flex:1; height:11px; background:#cdd0a8; border:2px solid #0f380f; border-radius:3px; overflow:hidden; }
+.stat__fill{ display:block; height:100%; background:#306230; }
+.poke-card__move{ font-size:1.12rem; line-height:1.15; color:#15300f; margin:.2rem 0 .5rem; }
+.poke-card__move b{ color:#0f380f; }
+.poke-card__full{ font-size:.95rem; color:#3a4a2e; margin:.1rem 0; }
+.poke-card__flavor{ font-size:1.05rem; font-style:italic; color:#5a6a4a; margin:.2rem 0 0; }
+
+@media (prefers-reduced-motion: reduce){ .poke-card{ transition:none; } }
+
+/* ============================================================
+   Games page — Persona 3 Reload style v2 (scoped .p3-world)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap');
+
+.p3-world{
+  width:100vw; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
+  position:relative; overflow:hidden; padding:3.5rem 1.2rem 5rem;
+  background:linear-gradient(145deg,#061a8c 0%, #1640e6 48%, #2f74ff 100%);
+  color:#fff; font-family:"Oswald","Inter",system-ui,sans-serif;
+  --cy:#3df0ff;
+}
+/* bright top glow + big diagonal black slash (P3 fragmented energy) */
+.p3-world::before{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(60% 45% at 50% -5%, rgba(255,255,255,.30), transparent 70%); }
+.p3-world::after{ content:""; position:absolute; top:-20%; left:-10%; width:55%; height:140%;
+  background:#02063a; opacity:.30; transform:skewX(-18deg); pointer-events:none; }
+/* giant watermark */
+.p3-glow{ position:absolute; right:-2%; top:8%; font-family:"Oswald"; font-weight:700; font-style:italic;
+  font-size:34vw; line-height:.8; color:rgba(255,255,255,.06); pointer-events:none; }
+.p3-glow::before{ content:"3"; }
+.p3-inner{ position:relative; z-index:1; max-width:1060px; margin:0 auto; }
+
+.p3-tag{ font-weight:700; letter-spacing:4px; color:var(--cy); transform:skewX(-10deg); font-size:1.05rem; }
+.p3-title{ font-weight:700; font-style:italic; font-size:clamp(3.4rem,12vw,8rem); line-height:.82;
+  transform:skewX(-9deg); margin:.1rem 0; color:#fff;
+  text-shadow:5px 5px 0 #02063a, 0 0 30px rgba(61,240,255,.4); }
+.p3-title span{ color:var(--cy); }
+.p3-sub{ color:#dbe6ff; font-size:1.2rem; letter-spacing:1px; margin:.4rem 0 2.2rem; }
+
+.p3-sec{ margin:2.6rem 0; }
+.p3-h{ display:inline-block; font-weight:700; font-style:italic; font-size:1.35rem; letter-spacing:2px;
+  color:#02063a; background:var(--cy); padding:.28rem 1.3rem .28rem .8rem; transform:skewX(-12deg);
+  box-shadow:7px 7px 0 rgba(2,6,58,.45); margin-bottom:1.1rem; }
+.p3-h>*{ display:inline-block; transform:skewX(12deg); }
+
+/* frosted panel helper look */
+.p3-best,.p3-now__chip,.p3-tier__games,.p3-card{
+  background:rgba(255,255,255,.10); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.35); }
+
+/* personal best */
+.p3-best{ position:relative; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  padding:1.7rem 1.5rem; transform:skewX(-3deg); border-left:6px solid var(--cy);
+  box-shadow:14px 14px 0 rgba(2,6,58,.4); margin-bottom:1.2rem; }
+.p3-best>*{ transform:skewX(3deg); }
+.p3-best__badge{ position:absolute; top:-15px; left:20px; background:var(--cy); color:#02063a;
+  font-weight:700; font-style:italic; letter-spacing:1px; padding:.22rem .9rem; transform:skewX(-12deg); }
+.p3-best__cover{ font-size:4.8rem; filter:drop-shadow(0 0 14px rgba(61,240,255,.6)); }
+.p3-best__body{ flex:1; min-width:220px; }
+.p3-best__title{ font-weight:700; font-style:italic; font-size:2.2rem; margin:0; color:#fff; }
+.p3-best__meta{ color:var(--cy); font-size:1.1rem; }
+.p3-best__blurb{ color:#eef3ff; font-size:1.2rem; margin:.5rem 0 0; max-width:60ch; }
+.p3-best__score{ font-weight:700; font-style:italic; color:#fff; text-align:center; }
+.p3-best__score b{ font-size:3.8rem; line-height:1; text-shadow:0 0 20px rgba(61,240,255,.8); color:var(--cy); }
+.p3-best__score span{ display:block; font-size:1rem; color:#dbe6ff; }
+
+/* now playing */
+.p3-now{ display:flex; flex-wrap:wrap; gap:.7rem; }
+.p3-now__chip{ padding:.45rem 1.1rem; transform:skewX(-10deg); font-size:1.15rem; color:#fff; }
+.p3-now__chip i{ color:var(--cy); font-style:normal; }
+
+/* tier list */
+.p3-tier{ display:grid; gap:.55rem; }
+.p3-tier__row{ display:flex; gap:.7rem; align-items:stretch; }
+.p3-tier__label{ width:60px; display:flex; align-items:center; justify-content:center; font-weight:700; font-style:italic;
+  font-size:1.6rem; color:#02063a; transform:skewX(-12deg); box-shadow:4px 4px 0 rgba(2,6,58,.4); }
+.tier-S .p3-tier__label{ background:#ffd23f; } .tier-A .p3-tier__label{ background:#3df0ff; }
+.tier-B .p3-tier__label{ background:#7CFC9A; } .tier-C .p3-tier__label{ background:#cfd6f0; } .tier-F .p3-tier__label{ background:#ff6b8a; }
+.p3-tier__games{ flex:1; display:flex; flex-wrap:wrap; gap:.45rem; align-items:center; padding:.5rem .7rem; }
+.p3-tier__chip{ background:rgba(2,6,58,.45); padding:.3rem .75rem; font-size:1.1rem; transform:skewX(-8deg); color:#fff; }
+
+/* review cards */
+.p3-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1.2rem; }
+.p3-card{ transform:skewX(-6deg); border-left:6px solid var(--cy); box-shadow:10px 10px 0 rgba(2,6,58,.4);
+  transition:transform .15s, box-shadow .15s; }
+.p3-card.tier-S{ border-left-color:#ffd23f; } .p3-card.tier-A{ border-left-color:#3df0ff; }
+.p3-card.tier-B{ border-left-color:#7CFC9A; } .p3-card.tier-C{ border-left-color:#cfd6f0; } .p3-card.tier-F{ border-left-color:#ff6b8a; }
+.p3-card:hover{ transform:skewX(-6deg) translate(7px,-3px); box-shadow:14px 14px 0 rgba(61,240,255,.35); }
+.p3-card__in{ transform:skewX(6deg); display:flex; gap:.8rem; padding:1rem; align-items:flex-start; }
+.p3-card__cover{ font-size:2.6rem; width:50px; text-align:center; flex:none; }
+.p3-card__main{ flex:1; min-width:0; }
+.p3-card__top{ display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+.p3-card__title{ font-weight:700; font-style:italic; font-size:1.3rem; margin:0; color:#fff; }
+.p3-badge{ font-weight:700; font-style:italic; font-size:1.05rem; color:#02063a; padding:.05rem .6rem; transform:skewX(-10deg); }
+.p3-badge.tier-S{ background:#ffd23f;} .p3-badge.tier-A{ background:#3df0ff;} .p3-badge.tier-B{ background:#7CFC9A;} .p3-badge.tier-C{ background:#cfd6f0;} .p3-badge.tier-F{ background:#ff6b8a;}
+.p3-card__meta{ color:#bcd0ff; font-size:1.02rem; margin:.12rem 0; }
+.p3-status{ text-transform:uppercase; font-size:.85rem; padding:.02rem .45rem; color:#02063a; }
+.p3-status--playing{ background:#7CFC9A; } .p3-status--finished{ background:#3df0ff; } .p3-status--backlog{ background:#ffd23f; }
+.p3-card__blurb{ color:#eef3ff; font-size:1.12rem; margin:.3rem 0 .5rem; }
+.p3-card__pc{ display:flex; gap:1.2rem; font-size:1.02rem; }
+.p3-card__pc ul{ list-style:none; padding:0; margin:0; }
+.p3-pros li::before{ content:"+ "; color:#8effc4; } .p3-cons li::before{ content:"– "; color:#ffadbd; }
+.p3-pros li{ color:#d9ffe9; } .p3-cons li{ color:#ffd6dd; }
+.p3-card__score{ font-weight:700; font-style:italic; font-size:2.2rem; color:var(--cy); flex:none; text-shadow:0 0 14px rgba(61,240,255,.6); }
+
+@media (prefers-reduced-motion: reduce){ .p3-card{ transition:none; } }

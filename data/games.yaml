@@ -1,0 +1,75 @@
+# Game reviews & ratings. Edit freely.
+# status: playing | finished | backlog · tier: S|A|B|C|F · score /10 · best: true marks your #1
+games:
+  - title: "Persona 3 Reload"
+    platform: PC
+    year: 2024
+    score: 9.7
+    tier: S
+    status: finished
+    hours: 95
+    cover: "🌙"
+    best: true
+    blurb: "Memento mori. The remake that made my favorite game perfect — style, music, and a story about death that taught me to live."
+    pros: ["Peerless style & UI", "The soundtrack", "Emotional gut-punch"]
+    cons: ["Wish Tartarus varied more"]
+
+  - title: "Persona 5 Royal"
+    platform: PC
+    year: 2020
+    score: 9.6
+    tier: S
+    status: finished
+    hours: 120
+    cover: "🎭"
+    blurb: "Take your heart. The most stylish RPG ever made — until P3R reminded me who came first."
+    pros: ["Confidants", "Jazzy swagger"]
+    cons: ["A bit long"]
+
+  - title: "The Legend of Zelda: Tears of the Kingdom"
+    platform: Switch
+    year: 2023
+    score: 9.5
+    tier: S
+    status: finished
+    hours: 130
+    cover: "🗡️"
+    blurb: "A sandbox that says 'yes' to everything I imagine building."
+    pros: ["Ultrahand creativity", "Exploration"]
+    cons: ["Performance dips"]
+
+  - title: "Super Mario Odyssey"
+    platform: Switch
+    year: 2017
+    score: 9.2
+    tier: A
+    status: finished
+    hours: 45
+    cover: "🍄"
+    blurb: "Pure joy in motion — every jump feels perfect."
+    pros: ["Movement", "Inventive kingdoms"]
+    cons: ["Easy"]
+
+  - title: "Pokémon Legends: Arceus"
+    platform: Switch
+    year: 2022
+    score: 9.0
+    tier: A
+    status: finished
+    hours: 62
+    cover: "🔴"
+    blurb: "The catching loop I always wanted — open and a little dangerous."
+    pros: ["Reinvented catching", "Hisui"]
+    cons: ["Visually dated"]
+
+  - title: "Hearthstone"
+    platform: PC
+    year: 2014
+    score: 8.4
+    tier: A
+    status: playing
+    hours: 400
+    cover: "🃏"
+    blurb: "My forever card game — comfort, ladder anxiety, and the occasional top-deck miracle."
+    pros: ["Easy to pick up", "Arena"]
+    cons: ["Power creep", "Wallet"]

@@ -1,0 +1,57 @@
+{{/* Games world — arcade/CRT */}}
+{{ $games := site.Data.games.games }}
+<div class="arcade-world">
+  <div class="crt">
+    <div class="arcade-bar">▶ GAMES&nbsp;&nbsp;·&nbsp;&nbsp;INSERT COIN <span class="blink">_</span></div>
+    <h2 class="arcade-title">High Scores &amp; Hot Takes</h2>
+    <p class="arcade-sub">黄镇 rates what he plays · scores out of 10</p>
+
+    {{ with where $games "status" "playing" }}
+    <section class="arcade-sec">
+      <h3 class="arcade-h">● NOW PLAYING</h3>
+      <div class="np-shelf">
+        {{ range . }}<span class="np-chip"><b>{{ .cover }}</b> {{ .title }} <i>· {{ .hours }}h</i></span>{{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    <section class="arcade-sec">
+      <h3 class="arcade-h">▣ TIER LIST</h3>
+      <div class="tierlist">
+        {{ range $tier := slice "S" "A" "B" "C" "F" }}
+          {{ $row := where $games "tier" $tier }}
+          {{ with $row }}
+          <div class="tier-row tier-{{ $tier }}">
+            <span class="tier-label">{{ $tier }}</span>
+            <div class="tier-games">{{ range . }}<span class="tier-chip">{{ .cover }} {{ .title }}</span>{{ end }}</div>
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="arcade-sec">
+      <h3 class="arcade-h">★ REVIEWS</h3>
+      <div class="game-grid">
+        {{ range $games }}
+        <article class="game-card tier-border-{{ .tier }}">
+          <div class="game-card__cover">{{ .cover }}</div>
+          <div class="game-card__body">
+            <div class="game-card__head">
+              <h4 class="game-card__title">{{ .title }}</h4>
+              <span class="tier-badge tier-{{ .tier }}">{{ .tier }}</span>
+            </div>
+            <div class="game-card__meta">{{ .platform }} · {{ .year }} · {{ .hours }}h · <span class="status status--{{ .status }}">{{ .status }}</span></div>
+            <div class="game-card__score"><b>{{ .score }}</b><span>/10</span></div>
+            <p class="game-card__blurb">{{ .blurb }}</p>
+            <div class="game-card__pc">
+              <ul class="pros">{{ range .pros }}<li>+ {{ . }}</li>{{ end }}</ul>
+              <ul class="cons">{{ range .cons }}<li>– {{ . }}</li>{{ end }}</ul>
+            </div>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+  </div>
+</div>

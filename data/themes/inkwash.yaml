@@ -1,0 +1,41 @@
+# HugoBlox Theme Pack — Clean modern light
+# Crisp near-white, slate text, indigo accent (teal secondary).
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "Clean Light"
+    vendor: "custom"
+    version: "1.0.0"
+    description: "Clean modern light: near-white, slate, indigo"
+
+  type: "dual"
+
+  light:
+    colors:
+      primary: "#4F46E5"    # indigo — links & buttons
+      secondary: "#0D9488"  # teal — gradient direction / accents
+      neutral: "#64748B"    # slate-500 for muted/gray text
+    surfaces:
+      background: "#FCFCFD"  # crisp near-white
+      foreground: "#111827"  # slate-900 text
+      header:
+        background: "#FFFFFF"
+        foreground: "#111827"
+      footer:
+        background: "#F8FAFC"  # slate-50
+        foreground: "#334155"
+
+  dark:
+    colors:
+      primary: "#818CF8"
+      secondary: "#2DD4BF"
+      neutral: "#94A3B8"
+    surfaces:
+      background: "#0B1120"
+      foreground: "#E5E7EB"
+      header:
+        background: "#0B1120"
+        foreground: "#E5E7EB"
+      footer:
+        background: "#070B14"
+        foreground: "#CBD5E1"
