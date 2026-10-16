@@ -1,0 +1,71 @@
+{{ define "main" }}
+{{ $profile := hugo.Data.studio }}
+<main class="studio-shell studio-home" id="main-content" data-pagefind-body>
+  <section class="studio-hero" aria-labelledby="intro-title">
+    <div class="studio-introduction">
+      <p class="studio-eyebrow"><span class="studio-dot" aria-hidden="true"></span>{{ $profile.eyebrow }}</p>
+      <div class="studio-identity-row"><div><h1 id="intro-title">{{ $profile.name }}<span class="studio-period">.</span></h1><p class="studio-role">{{ $profile.role }} <span aria-hidden="true">·</span> {{ $profile.affiliation }}</p></div>
+      {{ with resources.Get "media/authors/zhen-huang.png" }}{{ $portrait := .Resize "256x webp q88" }}<a class="studio-portrait-link" href="{{ "bio/" | relURL }}" aria-label="About Zhen Huang"><img class="studio-portrait-small" src="{{ $portrait.RelPermalink }}" width="{{ $portrait.Width }}" height="{{ $portrait.Height }}" alt="Zhen Huang" fetchpriority="high"></a>{{ end }}</div>
+      <h2>{{ range $index, $line := split $profile.tagline ", " }}{{ if $index }},<br>{{ end }}{{ $line }}{{ end }}</h2>
+      <p class="studio-summary">{{ $profile.summary }}</p>
+      <div class="studio-contact">
+        <a href="mailto:{{ $profile.email }}">Email <span aria-hidden="true">↗</span></a><button class="studio-copy-email" type="button" data-copy-email="{{ $profile.email }}" aria-label="Copy email address"><span data-copy-label>Copy email</span><span aria-hidden="true">⧉</span></button><span class="studio-sr-only" data-copy-status role="status"></span>
+        {{ range $profile.links }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span><span class="studio-sr-only"> (opens in a new tab)</span></a>
+        {{ end }}
+      </div>
+    </div>
+    <figure class="studio-art studio-molecular-art">
+      <div class="studio-art-heading"><span>Molecular polarization</span><span>01 / Explore</span></div>
+      <div class="studio-molecular-toolbar" role="group" aria-label="Polarization comparison"><button type="button" data-polarization-mode="permanent" aria-pressed="false">Permanent</button><button type="button" data-polarization-mode="polarized" aria-pressed="true">Polarized</button><span data-molecular-state>Mutual induction · on</span></div>
+      <svg class="studio-surface studio-molecular-scene" data-molecular-scene viewBox="0 0 440 310" role="img" aria-labelledby="molecular-title molecular-description">
+        <title id="molecular-title">Molecular polarization in a water dimer</title>
+        <desc id="molecular-description">Gaussian charge-density contours surround two water molecules. Blue arrows show self-consistent induced dipoles on the atoms. Change the neighboring molecule's orientation or separation to explore their mutual response. An illustrative model, not a fitted water parameter set; arrow lengths are enlarged for visibility.</desc>
+        <defs><radialGradient id="studio-molecular-wash"><stop offset="0" stop-color="#28639c" stop-opacity=".06"/><stop offset="1" stop-color="#28639c" stop-opacity="0"/></radialGradient><marker id="studio-dipole-tip" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#28639c" stroke-width="1.3"/></marker></defs>
+        <ellipse cx="220" cy="160" rx="208" ry="130" fill="url(#studio-molecular-wash)"/>
+        <g class="studio-molecule-captions"><text x="110" y="30">H₂O</text><text x="300" y="30">H₂O · neighbor</text></g>
+        <g data-density-contours></g><g data-molecule-layer></g>
+        <g class="studio-molecule-legend"><circle cx="72" cy="289" r="3" fill="#28639c"/><text x="82" y="292">− density</text><circle cx="178" cy="289" r="3" fill="#b18c72"/><text x="188" y="292">+ density</text><path d="M291 289H313" stroke="#28639c" marker-end="url(#studio-dipole-tip)"/><text x="323" y="292">pᵢ</text></g>
+      </svg>
+      <figcaption><span>Molecules respond<br>to their surroundings.</span><span class="studio-figure-note">Gaussian densities<br>Coupled atomic dipoles</span></figcaption>
+      <div class="studio-molecule-controls"><label for="studio-orientation">Neighbor orientation <output data-orientation-output for="studio-orientation">30°</output><input id="studio-orientation" type="range" min="-80" max="80" step="5" value="30"></label><label for="studio-distance">Separation <output data-distance-output for="studio-distance">Middle</output><input id="studio-distance" type="range" min="2.4" max="3.3" step="0.05" value="2.7"></label><button type="button" data-molecule-reset aria-label="Reset molecular illustration">↺</button></div>
+      <p class="studio-model-note">Conceptual water dimer · illustrative parameters · arrows enlarged</p>
+      <noscript><p class="studio-model-note">Enable JavaScript to explore the molecular illustration.</p></noscript>
+    </figure>
+  </section>
+
+  <section class="studio-research" id="research" aria-labelledby="research-title">
+    <div class="studio-section-label"><h2 id="research-title">Research focus</h2><span>01—03</span></div>
+    <div class="studio-research-items">
+      {{ range $index, $area := $profile.research }}
+      <article class="studio-research-card">{{ partial "studio/research-art.html" $index }}<span class="studio-number">{{ printf "%02d" (add $index 1) }}</span><h3>{{ $area.title }}</h3><p>{{ $area.description }}</p><p class="studio-research-detail">{{ $area.detail }}</p></article>
+      {{ end }}
+    </div>
+  </section>
+
+
+  {{ partial "studio/multipoles.html" . }}
+
+  {{ partial "studio/alchemical.html" . }}
+
+  <section class="studio-publications" id="papers" aria-labelledby="papers-title">
+    <div class="studio-section-title"><h2 id="papers-title">Selected publications</h2><a class="studio-section-link" href="{{ "publications/" | relURL }}">All publications <span aria-hidden="true">↗</span></a></div>
+    {{ range $profile.selected_publications }}
+    {{ with site.GetPage . }}
+    <article class="studio-paper">
+      <span class="studio-paper-year">{{ .Date.Format "2006" }}</span>
+      <div><h3><a href="{{ .RelPermalink }}">{{ .Title }}<span class="studio-paper-arrow" aria-hidden="true">↗</span></a></h3><p>{{ partial "studio/publication-journal.html" . }}</p></div>
+      <div class="studio-paper-links">{{ $page := . }}{{ range .Params.links }}{{ if eq .type "pdf" }}{{ with $page.Resources.GetMatch .url }}<a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Download PDF: {{ $page.Title }}">PDF <span aria-hidden="true">↗</span></a>{{ end }}{{ else if hasPrefix .url "https://doi.org/" }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="DOI: {{ $page.Title }}">DOI <span aria-hidden="true">↗</span></a>{{ end }}{{ end }}</div>
+    </article>
+    {{ end }}
+    {{ end }}
+  </section>
+
+  {{ $talks := first 2 (sort (where site.RegularPages "Section" "events") "Date" "desc") }}
+  {{ with $talks }}
+  <section class="studio-talks" id="talks" aria-labelledby="talks-title"><div class="studio-section-title"><h2 id="talks-title">Talks & presentations</h2><a class="studio-section-link" href="{{ "events/" | relURL }}">All talks <span aria-hidden="true">↗</span></a></div>
+    <div class="studio-talk-grid">{{ range . }}<article><p class="studio-eyebrow">{{ .Params.event_name }}</p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p class="studio-talk-place">{{ .Date.Format "2006" }}{{ with .Params.location }} <span aria-hidden="true">·</span> {{ . }}{{ end }}</p></article>{{ end }}</div>
+  </section>
+  {{ end }}
+</main>
+{{ end }}

@@ -1,0 +1,6 @@
+{{- $page := . -}}
+{{- range $index, $name := .Params.authors -}}
+  {{- if $index }}, {{ end -}}
+  {{- if eq $name "me" -}}<strong>Zhen Huang</strong>{{- else -}}{{ $name }}{{- end -}}
+  {{- with $page.Params.author_notes -}}{{- if lt $index (len .) -}}{{- with index . $index -}}<span aria-label="{{ . }}" title="{{ . }}">*</span>{{- end -}}{{- end -}}{{- end -}}
+{{- end -}}

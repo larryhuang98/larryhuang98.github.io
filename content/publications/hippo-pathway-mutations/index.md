@@ -1,37 +1,54 @@
 ---
-title: "Functional Annotation of the Hippo Pathway Somatic Mutations in Human Cancers"
+title: Functional annotation of the Hippo pathway somatic mutations in human cancers
 authors:
-  - H. Han
-  - me
-  - et al.
+- Han Han
+- me
+- Congsheng Xu
+- Gayoung Seo
+- Jeongmin An
+- Bing Yang
+- Yuhan Liu
+- Tian Lan
+- Jiachen Yan
+- Shanshan Ren
+- Yue Xu
+- Di Xiao
+- Jonathan K. Yan
+- Claire Ahn
+- Dmitry A. Fishman
+- Zhipeng Meng
+- Kun-Liang Guan
+- Ruxi Qi
+- Ray Luo
+- Wenqi Wang
 author_notes:
-  - "Equal contribution"
-  - "Equal contribution"
-date: "2024-11-19T00:00:00Z"
-publishDate: "2024-11-19T00:00:00Z"
-
-publication_types: ["article-journal"]
+- Equal contribution
+- Equal contribution
+- Equal contribution
+date: '2024-11-19'
+publishDate: '2024-11-19'
+publication_types:
+- article-journal
 publication:
-  name: "Nature Communications"
+  name: Nature Communications
   volume: 15
-  pages: "10106"
+  pages: '10106'
 peer_reviewed: true
-
-abstract: ""
-summary: "Co-first-author study annotating the functional impact of Hippo-pathway somatic mutations across human cancers."
-
+abstract: ''
+summary: Co-first-author study of cancer-associated Hippo pathway mutations and the mechanisms underlying their
+  effects on pathway function.
 tags:
-  - Computational biology
+- Computational biology
 featured: false
-
-# TODO: add the article DOI / Nature URL as a `source` link once confirmed.
-links: []
-
+links:
+- type: source
+  url: https://doi.org/10.1038/s41467-024-54480-y
 image:
-  caption: ""
-  focal_point: ""
+  caption: ''
+  focal_point: ''
   preview_only: false
-
 projects: []
-slides: ""
+slides: ''
+status: published
+doi: 10.1038/s41467-024-54480-y
 ---

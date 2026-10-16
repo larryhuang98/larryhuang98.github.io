@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: "Computational chemist — force-field & molecular-dynamics methods"
     # Site meta description for search engines and social sharing
-    description: "Zhen Huang — Ph.D. candidate in computational chemistry at UC Irvine.
+    description: "Zhen Huang — postdoctoral researcher in computational chemistry at UC Irvine.
       Gaussian-density force fields, molecular dynamics, and GPU high-performance computing."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
@@ -35,7 +35,7 @@ hugoblox:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
     mode: light
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
-    pack: "inkwash"
+    pack: "studio"
     # Optional: Override theme pack colors
     colors:
       primary: "" # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
@@ -61,7 +61,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   typography:
     # Theme pack: name from data/fonts/
-    pack: "inkwash"
+    pack: "studio"
 
   # ────────────────────────────────────────────────────────────────────────────
   # LAYOUT
@@ -84,7 +84,7 @@ hugoblox:
     # Header style variant
     style: navbar # navbar | navbar-simple | minimal
     # Stick to top on scroll
-    sticky: true
+    sticky: false
     # Menu alignment
     align: center # left | center | right
     # Feature toggles

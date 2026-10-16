@@ -1,0 +1,3 @@
+{{ define "main" }}
+<main class="studio-shell studio-reading" id="main-content" data-pagefind-body><header class="studio-page-intro"><p class="studio-eyebrow">Zhen Huang / {{ .Title }}</p><h1>{{ .Title }}<span class="studio-period">.</span></h1></header>{{ if eq .Section "bio" }}<div class="studio-about-layout"><div class="studio-prose">{{ .Content }}</div>{{ with resources.Get "media/authors/zhen-huang.png" }}{{ $portrait := .Resize "640x webp q90" }}<figure class="studio-about-portrait"><img src="{{ $portrait.RelPermalink }}" width="{{ $portrait.Width }}" height="{{ $portrait.Height }}" alt="Portrait of Zhen Huang" fetchpriority="high"></figure>{{ end }}</div>{{ else }}<div class="studio-prose">{{ .Content }}</div>{{ end }}</main>
+{{ end }}

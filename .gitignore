@@ -67,3 +67,7 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Python helper caches
+__pycache__/
+*.py[cod]

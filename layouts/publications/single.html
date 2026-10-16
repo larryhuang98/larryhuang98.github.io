@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="studio-shell studio-reading" id="main-content" data-pagefind-body>
+  <a class="studio-back" href="{{ "publications/" | relURL }}">← All publications</a>
+  <article class="studio-publication-detail">
+    <p class="studio-eyebrow">{{ .Date.Format "2006" }} / {{ if .Params.peer_reviewed }}Journal article{{ else if eq .Params.status "conference-abstract" }}Conference abstract{{ else if eq .Params.status "under-revision" }}Manuscript under revision{{ else if eq .Params.status "submitted" }}Submitted manuscript{{ else }}Manuscript in preparation{{ end }}</p>
+    <h1>{{ .Title }}</h1><p class="studio-detail-authors">{{ partial "studio/authors.html" . }}</p>
+    {{ with .Params.author_notes }}<p class="studio-author-note">* {{ index . 0 }}</p>{{ end }}
+    <p class="studio-detail-journal">{{ partial "studio/publication-journal.html" . }}</p>
+    <div class="studio-detail-links">{{ $page := . }}{{ range .Params.links }}{{ if eq .type "pdf" }}{{ with $page.Resources.GetMatch .url }}<a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer">Read paper (PDF) ↗</a>{{ end }}{{ else }}{{ if hasPrefix .url "https://doi.org/" }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Publisher article ↗</a>{{ end }}{{ end }}{{ end }}</div>
+    {{ with .Params.abstract }}<div class="studio-prose"><h2>Abstract</h2>{{ . | markdownify }}</div>{{ else }}{{ with .Params.summary }}<p class="studio-detail-summary">{{ . }}</p>{{ end }}{{ end }}
+    {{ with .Content }}<div class="studio-prose">{{ . }}</div>{{ end }}
+  </article>
+</main>
+{{ end }}

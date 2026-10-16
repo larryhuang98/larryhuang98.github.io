@@ -1,0 +1,15 @@
+<dialog class="studio-command" data-command-dialog aria-labelledby="studio-command-title">
+  <div class="studio-command-top"><h2 id="studio-command-title">Jump to</h2><button type="button" data-command-close aria-label="Close quick navigation">Esc</button></div>
+  <label class="studio-sr-only" for="studio-command-query">Find a page or publication</label>
+  <input id="studio-command-query" type="search" placeholder="Find a page or publication…" autocomplete="off" spellcheck="false" autofocus>
+  <div class="studio-command-results">
+    <p class="studio-command-group">Explore</p>
+    {{ range (slice (dict "name" "Home" "url" "/" "key" "start introduction") (dict "name" "Research" "url" "/#research" "key" "science models molecular polarization") (dict "name" "Molecular multipoles" "url" "/#multipoles" "key" "pGM small molecules charges dipoles polarization water methanol formaldehyde") (dict "name" "Alchemical transformations" "url" "/#alchemical" "key" "lambda free energy DEGAUSS softcore decoupling") (dict "name" "Publications" "url" "/publications/" "key" "papers articles") (dict "name" "About" "url" "/bio/" "key" "biography education") (dict "name" "Writing" "url" "/blog/" "key" "notes blog") (dict "name" "Talks" "url" "/events/" "key" "presentations conferences") (dict "name" "Games" "url" "/games/" "key" "reviews interests")) }}
+    <a href="{{ .url | relURL }}" data-command-item data-command-key="{{ .name }} {{ .key }}"><span>{{ .name }}</span><span aria-hidden="true">↗</span></a>
+    {{ end }}
+    <p class="studio-command-group">Selected papers</p>
+    {{ range hugo.Data.studio.selected_publications }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}" data-command-item data-command-key="{{ .Title }} {{ .Params.summary }}"><span>{{ .Title }}</span><span aria-hidden="true">↗</span></a>{{ end }}{{ end }}
+    <p class="studio-command-empty" data-command-empty hidden>No matching pages.</p>
+  </div>
+  <div class="studio-command-footer"><span>↑ ↓ to move · Enter to open</span><span data-command-count role="status"></span></div>
+</dialog>

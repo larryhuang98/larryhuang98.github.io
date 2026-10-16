@@ -1,0 +1,28 @@
+eyebrow: Computational chemistry
+name: Zhen Huang
+role: Postdoctoral researcher
+affiliation: UC Irvine
+tagline: Molecular simulation, from model to code.
+summary: I study molecular interactions through physical models and high-performance simulation tools.
+email: zhenh7@uci.edu
+links:
+- label: GitHub
+  url: https://github.com/larryhuang98
+- label: Luo Lab
+  url: https://rayluolab.org/
+research:
+- title: Polarizable electrostatics
+  description: Gaussian multipoles and induced dipoles
+  detail: Modelling the response of molecular charge distributions to their environment.
+- title: Force-field development
+  description: DEGAUSS and Gaussian van der Waals
+  detail: Developing smooth interaction models for molecular simulation and free-energy calculations.
+- title: Biomolecular simulation
+  description: Enhanced sampling and molecular mechanisms
+  detail: Studying membrane proteins and biomolecular interactions with molecular dynamics.
+selected_publications:
+- /publications/gvdw-pgm
+- /publications/degauss
+- /publications/ips-pgm
+- /publications/pgm-performance-tuning
+- /publications/induced-dipole-energy-conservation

@@ -1,0 +1,10 @@
+<main class="studio-shell studio-index" id="main-content" data-pagefind-body>
+  <header class="studio-page-intro"><p class="studio-eyebrow">Zhen Huang / {{ if in (slice "games" "blog" "literature") .Section }}Personal notebook{{ else }}Research{{ end }}</p><h1>{{ .Title }}<span class="studio-period">.</span></h1>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}</header>
+  {{ with .Content }}<div class="studio-section-content">{{ . }}</div>{{ end }}
+  {{ $pages := .RegularPages.ByDate.Reverse }}
+  {{ if eq .Section "events" }}
+    <div class="studio-event-list">{{ range $pages }}<article class="studio-event"><p class="studio-paper-year">{{ .Date.Format "2006" }}</p><div><p class="studio-eyebrow">{{ .Params.event_name }}</p><h2><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></h2>{{ with .Params.location }}<p>{{ . }}</p>{{ end }}</div></article>{{ end }}</div>
+  {{ else }}
+    {{ with $pages }}<div class="studio-post-list">{{ range . }}<article><p class="studio-eyebrow">{{ .Date.Format "Jan 2, 2006" }}</p><h2><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></h2>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}</article>{{ end }}</div>{{ else }}{{ if in (slice "blog" "literature") $.Section }}<p class="studio-empty">{{ if eq $.Section "literature" }}Reading notes will appear here.{{ else }}New essays and notes will appear here.{{ end }}</p>{{ end }}{{ end }}
+  {{ end }}
+</main>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main class="studio-shell studio-index" id="main-content" data-pagefind-body>
+  <header class="studio-page-intro"><p class="studio-eyebrow">Research / Publications</p><h1>Publications<span class="studio-period">.</span></h1><p>Peer-reviewed articles, manuscripts, and conference abstracts.</p></header>
+  {{ range (slice (dict "title" "Published work" "status" "published") (dict "title" "Under revision" "status" "under-revision") (dict "title" "Submitted manuscripts" "status" "submitted") (dict "title" "In preparation" "status" "in-preparation") (dict "title" "Conference abstracts" "status" "conference-abstract")) }}
+  {{ $pages := where $.RegularPages "Params.status" .status }}
+  {{ if $pages }}<section class="studio-publication-group" data-publication-status="{{ .status }}"><h2>{{ .title }}</h2>{{ range $pages.ByDate.Reverse }}{{ partial "studio/paper.html" . }}{{ end }}</section>{{ end }}
+  {{ end }}
+</main>
+{{ end }}

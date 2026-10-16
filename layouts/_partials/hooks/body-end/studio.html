@@ -1,0 +1,8 @@
+{{ partial "studio/command.html" . }}
+{{ if .IsHome }}{{ with resources.Get "js/gaussian-model.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}{{ end }}
+{{ if .IsHome }}{{ with resources.Get "js/molecular.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}{{ end }}
+{{ with resources.Get "js/studio.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}
+
+{{ if .IsHome }}{{ with resources.Get "js/alchemical.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}{{ end }}
+
+{{ if .IsHome }}{{ with resources.Get "js/multipoles.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}{{ end }}

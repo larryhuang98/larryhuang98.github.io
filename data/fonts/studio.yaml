@@ -1,0 +1,19 @@
+# HugoBlox Font Pack — Clean modern (sans headings + serif body)
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Scientific Studio"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    style: "sans-serif"
+    description: "Instrument Serif headings with DM Sans body"
+
+  families:
+    heading: "Instrument Serif"
+    body: "DM Sans"
+    code: "IBM Plex Mono"
+
+  weights:
+    heading: [400]
+    body: [400, 500, 600]

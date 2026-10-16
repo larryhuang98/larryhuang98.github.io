@@ -1,0 +1,6 @@
+{{ $page := . }}
+<article class="studio-paper">
+  <span class="studio-paper-year">{{ .Date.Format "2006" }}</span>
+  <div><h3><a href="{{ .RelPermalink }}">{{ .Title }}<span class="studio-paper-arrow" aria-hidden="true">↗</span></a></h3><p class="studio-paper-authors">{{ partial "studio/authors.html" . }}</p><p>{{ partial "studio/publication-journal.html" . }}</p></div>
+  <div class="studio-paper-links">{{ range .Params.links }}{{ if eq .type "pdf" }}{{ with $page.Resources.GetMatch .url }}<a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="Download PDF: {{ $page.Title }}">PDF ↗</a>{{ end }}{{ else }}{{ if hasPrefix .url "https://doi.org/" }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="DOI: {{ $page.Title }}">DOI ↗</a>{{ end }}{{ end }}{{ end }}</div>
+</article>

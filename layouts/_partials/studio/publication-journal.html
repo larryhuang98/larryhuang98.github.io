@@ -1,0 +1,5 @@
+{{- .Params.publication.name -}}
+{{- with .Params.publication.volume }} <span aria-hidden="true">·</span> {{ . }}{{ end -}}
+{{- with .Params.publication.issue }}({{ . }}){{ end -}}
+{{- with .Params.publication.pages }}, {{ . }}{{ end -}}
+{{- with .Params.publication.note }} <span aria-hidden="true">·</span> {{ . }}{{ end -}}

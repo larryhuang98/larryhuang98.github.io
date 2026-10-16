@@ -1,0 +1,9 @@
+{{/* SVG in browser tabs; PNG for the theme's 512px social-image fallback. */}}
+{{ $size := int (. | default 32) }}
+{{ $result := dict "resource" nil "type" "" "is_svg" false }}
+{{ if lt $size 512 }}
+  {{ with resources.Get "media/icon.svg" }}{{ $result = dict "resource" (. | fingerprint) "type" "image/svg+xml" "is_svg" true }}{{ end }}
+{{ else }}
+  {{ with resources.Get "media/icon.png" }}{{ $result = dict "resource" (.Fill (printf "%dx%d Center" $size $size)) "type" "image/png" "is_svg" false }}{{ end }}
+{{ end }}
+{{ return $result }}

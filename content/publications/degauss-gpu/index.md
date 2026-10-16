@@ -1,34 +1,29 @@
 ---
-title: "Efficient GPU Implementation of the DEGAUSS Force Field with Gaussian Electrostatics and Double Exponential van der Waals Interactions in the AMBER Molecular Dynamics Package"
+title: GPU-Accelerated DEGAUSS in AMBER for Molecular Dynamics and Alchemical Free-Energy Calculations
 authors:
-  - me
-  - Yong Duan
-  - X. Wu
-  - Ray Luo
-date: "2026-02-01T00:00:00Z"
-publishDate: "2026-02-01T00:00:00Z"
-
-publication_types: ["article-journal"]
+- me
+- Yong Duan
+- Xiongwu Wu
+- Ray Luo
+date: '2026-01-01'
+publishDate: '2026-01-01'
+publication_types:
+- manuscript
 publication:
-  name: "Submitted to Journal of Chemical Theory and Computation"
+  name: Submitted
 peer_reviewed: false
-
-abstract: ""
-summary: "GPU (CUDA) implementation of the DEGAUSS force field in AMBER. Manuscript submitted, 2026."
-
+abstract: ''
+summary: GPU implementation of DEGAUSS in AMBER for molecular dynamics and alchemical free-energy calculations.
+  Manuscript submitted, 2026.
 tags:
-  - Force fields
-  - High-performance computing
-  - Submitted
+- Submitted
 featured: false
-
 links: []
-
 image:
-  caption: ""
-  focal_point: ""
+  caption: ''
+  focal_point: ''
   preview_only: false
-
 projects: []
-slides: ""
+slides: ''
+status: submitted
 ---

@@ -11,11 +11,11 @@ name:
 postnominals: []
 status:
   icon: "🧪"
-role: Ph.D. Candidate in Computational Chemistry
+role: Postdoctoral Researcher in Computational Chemistry
 
 bio: |
-  Zhen Huang is a Ph.D. candidate in computational chemistry at the University of
-  California, Irvine, advised by Prof. Ray Luo, and a core developer of the AMBER
+  Zhen Huang is a postdoctoral researcher in computational chemistry at the University of
+  California, Irvine, working with Prof. Ray Luo, and a core developer of the AMBER
   molecular dynamics package. His work centers on force-field development and
   high-performance scientific software: the polarizable Gaussian multipole (pGM)
   model, the DEGauss softcore potential, and a self-consistent Gaussian van der

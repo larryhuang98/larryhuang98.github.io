@@ -1,0 +1,13 @@
+<a class="studio-skip" href="#main-content">Skip to content</a>
+<div class="studio-reading-progress" aria-hidden="true"><span></span></div>
+<header class="studio-shell studio-header">
+  <a class="studio-brand" href="{{ site.Home.RelPermalink }}" aria-label="Zhen Huang — home">{{ with resources.Get "media/icon.svg" }}<img class="studio-logo" src="{{ .RelPermalink }}" width="32" height="32" alt="">{{ end }}<span>Zhen Huang</span></a>
+  <nav class="studio-nav" aria-label="Main navigation">
+    {{ range site.Menus.main }}
+    <a href="{{ .URL | relURL }}" {{ if eq .Name "Writing" }}class="studio-nav-writing"{{ end }} {{ if eq $.RelPermalink (.URL | relURL) }}aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+    <details class="studio-more"><summary>More <span aria-hidden="true">⌄</span></summary><div class="studio-more-menu"><a class="studio-mobile-writing" href="{{ "blog/" | relURL }}">Writing</a><a href="{{ "events/" | relURL }}">Talks</a><a href="{{ "games/" | relURL }}">Game reviews</a><a href="{{ "literature/" | relURL }}">Literature</a></div></details>
+    <a class="studio-nav-contact" href="mailto:{{ hugo.Data.studio.email }}">Contact <span aria-hidden="true">↗</span></a>
+    <button class="studio-command-trigger" type="button" data-command-open aria-label="Open quick navigation"><span>Jump to</span><kbd data-command-shortcut>⌘ K</kbd></button>
+  </nav>
+</header>

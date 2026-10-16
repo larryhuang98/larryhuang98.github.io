@@ -1,0 +1,41 @@
+# HugoBlox Theme Pack — Clean modern light
+# Crisp near-white, slate text, indigo accent (teal secondary).
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "Scientific Studio"
+    vendor: "custom"
+    version: "1.0.0"
+    description: "Scientific Studio: paper, ink, and restrained blue"
+
+  type: "dual"
+
+  light:
+    colors:
+      primary: "#28639C"    # indigo — links & buttons
+      secondary: "#587F98"  # teal — gradient direction / accents
+      neutral: "#64748B"    # slate-500 for muted/gray text
+    surfaces:
+      background: "#F8FAFB"  # crisp near-white
+      foreground: "#1C303E"  # slate-900 text
+      header:
+        background: "#F8FAFB"
+        foreground: "#1C303E"
+      footer:
+        background: "#F8FAFB"  # slate-50
+        foreground: "#586D7B"
+
+  dark:
+    colors:
+      primary: "#818CF8"
+      secondary: "#2DD4BF"
+      neutral: "#94A3B8"
+    surfaces:
+      background: "#0B1120"
+      foreground: "#E5E7EB"
+      header:
+        background: "#0B1120"
+        foreground: "#E5E7EB"
+      footer:
+        background: "#070B14"
+        foreground: "#CBD5E1"

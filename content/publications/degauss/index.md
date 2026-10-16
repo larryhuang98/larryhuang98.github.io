@@ -1,37 +1,39 @@
 ---
-title: "DEGAUSS: A Novel Softcore Force Field Using Double Exponential van der Waals and Gaussian Charge for Molecular Dynamics"
+title: 'DEGAUSS: A Novel Softcore Force Field Using Double Exponential van der Waals and Gaussian Charge for Molecular
+  Dynamics Simulations I: Theory and Validation'
 authors:
-  - me
-  - Yong Duan
-  - X. Wu
-  - Ray Luo
-date: "2025-11-01T00:00:00Z"
-publishDate: "2025-11-01T00:00:00Z"
-
-publication_types: ["article-journal"]
+- me
+- Yong Duan
+- Xiongwu Wu
+- Ray Luo
+date: '2025-11-14'
+publishDate: '2025-11-14'
+publication_types:
+- article-journal
 publication:
-  name: "Journal of Chemical Theory and Computation"
+  name: Journal of Chemical Theory and Computation
   volume: 21
-  pages: "11657–11668"
+  issue: 22
+  pages: 11657–11668
 peer_reviewed: true
-
-abstract: ""
-summary: "A softcore force field pairing a double-exponential van der Waals form with Gaussian-distributed charges."
-
+abstract: ''
+summary: A singularity-free force-field framework combining Gaussian-charge electrostatics and double-exponential
+  van der Waals interactions for molecular dynamics and alchemical calculations.
 tags:
-  - Force fields
-  - Molecular dynamics
+- Force fields
+- Molecular dynamics
 featured: true
-
 links:
-  - type: pdf
-    url: paper.pdf
-
+- type: pdf
+  url: paper.pdf
+- type: source
+  url: https://doi.org/10.1021/acs.jctc.5c01324
 image:
-  caption: ""
-  focal_point: ""
+  caption: ''
+  focal_point: ''
   preview_only: false
-
 projects: []
-slides: ""
+slides: ''
+status: published
+doi: 10.1021/acs.jctc.5c01324
 ---

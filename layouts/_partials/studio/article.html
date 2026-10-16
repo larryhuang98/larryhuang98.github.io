@@ -1,0 +1,8 @@
+<main class="studio-shell studio-reading" id="main-content" data-pagefind-body>
+  {{ with .CurrentSection }}<a class="studio-back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+  <article><header class="studio-page-intro"><p class="studio-eyebrow">{{ with .Params.event_name }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Params.location }}<p>{{ . }}</p>{{ end }}</header>
+    {{ with .Params.summary }}<p class="studio-detail-summary">{{ . }}</p>{{ end }}
+    <div class="studio-prose">{{ .Content }}</div>
+    {{ with .Params.event_url }}<p class="studio-detail-links"><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Event website ↗</a></p>{{ end }}
+  </article>
+</main>

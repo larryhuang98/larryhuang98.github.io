@@ -1,0 +1,28 @@
+<section class="studio-alchemical" id="alchemical" aria-labelledby="alchemical-title">
+  <div class="studio-alchemical-copy">
+    <p class="studio-eyebrow">03 / Alchemical transformations</p>
+    <h2 id="alchemical-title">Changing interactions,<br>continuously.</h2>
+    <p>Connect coupled and decoupled states through λ. Explore how DEGAUSS scales Gaussian electrostatics and double-exponential van der Waals interactions.</p>
+    <div class="studio-alchemical-endpoints"><span><b>0</b> Decoupled</span><span aria-hidden="true">↔</span><span><b>1</b> Coupled</span></div>
+    <p class="studio-alchemical-context">Finite pair potentials permit direct decoupling. Free energies come from sampling the ensembles along the path.</p>
+    {{ with site.GetPage "/publications/degauss" }}<a class="studio-section-link" href="{{ .RelPermalink }}">The DEGAUSS paper <span aria-hidden="true">↗</span></a>{{ end }}
+  </div>
+  <div class="studio-alchemical-explorer" data-alchemical-explorer>
+    <div class="studio-alchemical-toolbar" role="group" aria-label="Alchemical interaction stage"><button type="button" data-alchemical-mode="charge" aria-pressed="true">Gaussian charges</button><button type="button" data-alchemical-mode="vdw" aria-pressed="false">Double-exponential vdW</button></div>
+    <svg viewBox="0 0 550 300" class="studio-alchemical-plot" role="img" aria-labelledby="alchemical-plot-title alchemical-plot-desc">
+      <title id="alchemical-plot-title">Alchemically scaled DEGAUSS pair potential</title>
+      <desc id="alchemical-plot-desc">Pair potential versus separation. The blue curve follows the coupling parameter lambda; the dashed curve shows the fully coupled reference. The energy remains finite at complete overlap. These are reduced pair energies, not calculated free energies.</desc>
+      <g data-alchemical-axes></g>
+      <path data-alchemical-reference class="studio-alchemical-reference"/>
+      <path data-alchemical-curve class="studio-alchemical-curve"/>
+      <circle data-alchemical-overlap r="4" fill="#28639c"/>
+      <text x="70" y="18" class="studio-alchemical-axis-label" data-alchemical-y-label></text>
+      <text x="298" y="288" text-anchor="middle" class="studio-alchemical-axis-label" data-alchemical-x-label></text>
+    </svg>
+    <div class="studio-alchemical-legend"><span><i></i> λ = <output data-lambda-legend>0.60</output></span><span><i></i> λ = 1 reference</span><span data-alchemical-limit>Finite at r = 0</span></div>
+    <div class="studio-lambda-control"><label for="studio-lambda">Coupling parameter <span>λ = <output for="studio-lambda" data-lambda-output>0.60</output></span></label><input id="studio-lambda" type="range" min="0" max="1" step="0.01" value="0.6" aria-describedby="studio-alchemical-stage"><div class="studio-lambda-ticks" data-lambda-ticks aria-hidden="true"></div><div class="studio-lambda-end-labels"><span>0 · decoupled</span><span>1 · coupled</span></div></div>
+    <p class="studio-alchemical-stage" id="studio-alchemical-stage" data-alchemical-stage>Stage 1 · scale solute charges; retain van der Waals interactions.</p>
+    <p class="studio-alchemical-parameters" data-alchemical-parameters>Opposite-charge pair · reduced units · linear charge scaling</p>
+    <noscript><p>Enable JavaScript to explore the λ path.</p></noscript>
+  </div>
+</section>
